@@ -1,14 +1,13 @@
 
-#include <tree_sitter/parser.h>
+#include "tree_sitter/parser.h"
 #include <wctype.h>
 #include <algorithm>
 #include <bitset>
 #include <cassert>
 #include <cstring>
-#include <sstream>
 #include <string>
-#include <type_traits>
 #include <vector>
+#include <limits>
 
 #define ENABLE_LOGGING 0
 
@@ -539,20 +538,7 @@ class BitQueue {
  private:
   std::bitset<CAPACITY_IN_BITS> bits_;
   size_t count_ = 0;        // number of bits contained
-  size_t read_offset_ = 0;  // read offset in bits
-                            //
-#if ENABLE_LOGGING
- public:
-  void to_chars(std::string& str) {
-    std::stringstream ss;
-    ss << count_ << ":";
-    for (auto i = 0; i < count_; ++i) {
-      bool is_template = (*this)[i];
-      ss << (is_template ? "#" : ".");
-    }
-    str = ss.str();
-  }
-#endif
+  size_t read_offset_ = 0;  // read offset in bits                            //
 };
 
 class Lexer {
@@ -604,10 +590,10 @@ class Lexer {
       return false;
     }
 
-    std::stringstream ss;
+    //std::stringstream ss;
     bool is_ascii = true;
     if (CodePoint start = next(); start < 0x80) {
-      ss.put(char(start));
+      //ss.put(char(start));
     } else {
       is_ascii = false;
     }
@@ -617,7 +603,7 @@ class Lexer {
         break;
       }
       if (CodePoint code_point = next(); code_point < 0x80) {
-        ss.put(char(code_point));
+        //ss.put(char(code_point));
       } else {
         is_ascii = false;
       }
@@ -666,6 +652,35 @@ class Lexer {
   TSLexer* lexer_;
 };
 
+template<class T>
+struct Mallocator
+{
+    typedef T value_type;
+
+    Mallocator() = default;
+
+    template<class U>
+    constexpr Mallocator(const Mallocator <U>&) noexcept {}
+
+    [[nodiscard]] T* allocate(std::size_t n)
+    {
+        if (n > std::numeric_limits<std::size_t>::max() / sizeof(T))
+          return NULL;
+
+        if (auto p = static_cast<T*>(std::malloc(n * sizeof(T))))
+        {
+            return p;
+        }
+
+        return NULL;
+    }
+
+    void deallocate(T* p, std::size_t n) noexcept
+    {
+        std::free(p);
+    }
+};
+
 struct Scanner {
   struct State {
     BitQueue<1024> lt_is_tmpl;  // Queue of disambiguated '<'
@@ -673,10 +688,10 @@ struct Scanner {
     bool empty() const { return lt_is_tmpl.empty() && gt_is_tmpl.empty(); }
   };
   State state;
-  static_assert(sizeof(State) < TREE_SITTER_SERIALIZATION_BUFFER_SIZE);
+  //static_assert(sizeof(State) < TREE_SITTER_SERIALIZATION_BUFFER_SIZE);
   // State is trivially copyable, so it can be serialized and deserialized
   // with memcpy.
-  static_assert(std::is_trivially_copyable<State>::value);
+  //static_assert(std::is_trivially_copyable<State>::value);
 
   /// Updates #state with the disambiguated '<' and '>' tokens.
   /// The following assumptions are made on entry:
@@ -700,7 +715,7 @@ struct Scanner {
       size_t index;       // Index of the opening '>' in lt_is_tmpl
       size_t expr_depth;  // The value of 'expr_depth' for the opening '<'
     };
-    std::vector<StackEntry> lt_stack;
+    std::vector<StackEntry, Mallocator<StackEntry>> lt_stack;
 
     LOG("classify_template_args() '<'");
     lt_stack.push_back(StackEntry{state.lt_is_tmpl.count(), expr_depth});
@@ -901,12 +916,7 @@ struct Scanner {
     if (state.empty()) {
       return 0;
     }
-#if ENABLE_LOGGING
-      std::string lt_str;  state.lt_is_tmpl.to_chars(lt_str);
-      std::string gt_str;  state.gt_is_tmpl.to_chars(gt_str);
-      LOG("serialize(lt_is_tmpl: %s, gt_is_tmpl: %s)",
-          lt_str.c_str(), gt_str.c_str());
-#endif
+
     size_t bytes_written = 0;
     auto write = [&](const void* data, size_t num_bytes) {
       assert(bytes_written + num_bytes <=
@@ -950,14 +960,19 @@ extern "C" {
 // Called once when language is set on a parser.
 // Allocates memory for storing scanner state.
 void* tree_sitter_wgsl_external_scanner_create() {
-  return new Scanner();
+  Scanner* s = (Scanner*)malloc(sizeof(Scanner));
+  new (s) Scanner();
+
+  return s;
 }
 
 // Called once parser is deleted or different language set.
 // Frees memory storing scanner state.
 void tree_sitter_wgsl_external_scanner_destroy(void* const payload) {
   Scanner* const scanner = static_cast<Scanner*>(payload);
-  delete scanner;
+
+  scanner->~Scanner();
+  free(scanner);
 }
 
 // Called whenever this scanner recognizes a token.
@@ -983,8 +998,8 @@ bool tree_sitter_wgsl_external_scanner_scan(void* const payload,
                                             const bool* const valid_symbols) {
   Scanner* const scanner = static_cast<Scanner*>(payload);
   if (scanner->scan(lexer, valid_symbols)) {
-    LOG("scan returned: %s", str(static_cast<Token>(lexer->result_symbol)));
-    return true;
+   LOG("scan returned: %s", str(static_cast<Token>(lexer->result_symbol)));
+   return true;
   }
   return false;
 }

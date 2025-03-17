@@ -11,7 +11,7 @@
 
         // **** This file is auto-generated. Do not edit. ****
 
-                module.exports = grammar({
+        module.exports = grammar({
             name: 'wgsl',
 
             externals: $ => [

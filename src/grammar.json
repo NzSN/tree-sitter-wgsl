@@ -1,4 +1,5 @@
 {
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "wgsl",
   "word": "ident_pattern_token",
   "rules": {
@@ -4211,7 +4212,8 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "([_\\p{XID_Start}][\\p{XID_Continue}]+)|([\\p{XID_Start}])"
+        "value": "([_\\p{XID_Start}][\\p{XID_Continue}]+)|([\\p{XID_Start}])",
+        "flags": "uy"
       }
     },
     "interpolation_type_name": {
@@ -5763,7 +5765,8 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[\\u0020\\u0009\\u000a\\u000b\\u000c\\u000d\\u0085\\u200e\\u200f\\u2028\\u2029]"
+        "value": "[\\u0020\\u0009\\u000a\\u000b\\u000c\\u000d\\u0085\\u200e\\u200f\\u2028\\u2029]",
+        "flags": "uy"
       }
     }
   },
@@ -5841,6 +5844,6 @@
     "global_decl",
     "_reserved"
   ],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }
-

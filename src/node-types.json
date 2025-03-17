@@ -1515,6 +1515,7 @@
   {
     "type": "translation_unit",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -1896,34 +1897,6 @@
     "named": false
   },
   {
-    "type": "CompileShader",
-    "named": false
-  },
-  {
-    "type": "ComputeShader",
-    "named": false
-  },
-  {
-    "type": "DomainShader",
-    "named": false
-  },
-  {
-    "type": "GeometryShader",
-    "named": false
-  },
-  {
-    "type": "Hullshader",
-    "named": false
-  },
-  {
-    "type": "NULL",
-    "named": false
-  },
-  {
-    "type": "Self",
-    "named": false
-  },
-  {
     "type": "[",
     "named": false
   },
@@ -1944,14 +1917,6 @@
     "named": false
   },
   {
-    "type": "abstract",
-    "named": false
-  },
-  {
-    "type": "active",
-    "named": false
-  },
-  {
     "type": "alias",
     "named": false
   },
@@ -1960,55 +1925,11 @@
     "named": false
   },
   {
-    "type": "alignas",
-    "named": false
-  },
-  {
-    "type": "alignof",
-    "named": false
-  },
-  {
     "type": "array",
     "named": false
   },
   {
-    "type": "as",
-    "named": false
-  },
-  {
-    "type": "asm",
-    "named": false
-  },
-  {
-    "type": "asm_fragment",
-    "named": false
-  },
-  {
-    "type": "async",
-    "named": false
-  },
-  {
     "type": "atomic",
-    "named": false
-  },
-  {
-    "type": "attribute",
-    "named": false
-  },
-  {
-    "type": "auto",
-    "named": false
-  },
-  {
-    "type": "await",
-    "named": false
-  },
-  {
-    "type": "become",
-    "named": false
-  },
-  {
-    "type": "bf16",
     "named": false
   },
   {
@@ -2017,10 +1938,6 @@
   },
   {
     "type": "binding",
-    "named": false
-  },
-  {
-    "type": "binding_array",
     "named": false
   },
   {
@@ -2044,14 +1961,6 @@
     "named": false
   },
   {
-    "type": "cast",
-    "named": false
-  },
-  {
-    "type": "catch",
-    "named": false
-  },
-  {
     "type": "center",
     "named": false
   },
@@ -2060,47 +1969,7 @@
     "named": false
   },
   {
-    "type": "class",
-    "named": false
-  },
-  {
-    "type": "co_await",
-    "named": false
-  },
-  {
-    "type": "co_return",
-    "named": false
-  },
-  {
-    "type": "co_yield",
-    "named": false
-  },
-  {
-    "type": "coherent",
-    "named": false
-  },
-  {
-    "type": "column_major",
-    "named": false
-  },
-  {
-    "type": "common",
-    "named": false
-  },
-  {
-    "type": "compile",
-    "named": false
-  },
-  {
-    "type": "compile_fragment",
-    "named": false
-  },
-  {
     "type": "compute",
-    "named": false
-  },
-  {
-    "type": "concept",
     "named": false
   },
   {
@@ -2112,22 +1981,6 @@
     "named": false
   },
   {
-    "type": "const_cast",
-    "named": false
-  },
-  {
-    "type": "consteval",
-    "named": false
-  },
-  {
-    "type": "constexpr",
-    "named": false
-  },
-  {
-    "type": "constinit",
-    "named": false
-  },
-  {
     "type": "continue_statement",
     "named": true
   },
@@ -2136,43 +1989,11 @@
     "named": false
   },
   {
-    "type": "crate",
-    "named": false
-  },
-  {
-    "type": "debugger",
-    "named": false
-  },
-  {
-    "type": "decltype",
-    "named": false
-  },
-  {
     "type": "default",
     "named": false
   },
   {
-    "type": "delete",
-    "named": false
-  },
-  {
-    "type": "demote",
-    "named": false
-  },
-  {
-    "type": "demote_to_helper",
-    "named": false
-  },
-  {
     "type": "discard",
-    "named": false
-  },
-  {
-    "type": "do",
-    "named": false
-  },
-  {
-    "type": "dynamic_cast",
     "named": false
   },
   {
@@ -2184,30 +2005,6 @@
     "named": false
   },
   {
-    "type": "enum",
-    "named": false
-  },
-  {
-    "type": "explicit",
-    "named": false
-  },
-  {
-    "type": "export",
-    "named": false
-  },
-  {
-    "type": "extends",
-    "named": false
-  },
-  {
-    "type": "extern",
-    "named": false
-  },
-  {
-    "type": "external",
-    "named": false
-  },
-  {
     "type": "f16",
     "named": false
   },
@@ -2216,27 +2013,7 @@
     "named": false
   },
   {
-    "type": "f64",
-    "named": false
-  },
-  {
-    "type": "fallthrough",
-    "named": false
-  },
-  {
     "type": "false",
-    "named": false
-  },
-  {
-    "type": "filter",
-    "named": false
-  },
-  {
-    "type": "final",
-    "named": false
-  },
-  {
-    "type": "finally",
     "named": false
   },
   {
@@ -2260,14 +2037,6 @@
     "named": false
   },
   {
-    "type": "friend",
-    "named": false
-  },
-  {
-    "type": "from",
-    "named": false
-  },
-  {
     "type": "front_facing",
     "named": false
   },
@@ -2276,19 +2045,7 @@
     "named": false
   },
   {
-    "type": "fxgroup",
-    "named": false
-  },
-  {
-    "type": "get",
-    "named": false
-  },
-  {
     "type": "global_invocation_id",
-    "named": false
-  },
-  {
-    "type": "goto",
     "named": false
   },
   {
@@ -2296,35 +2053,11 @@
     "named": false
   },
   {
-    "type": "groupshared",
-    "named": false
-  },
-  {
-    "type": "handle",
-    "named": false
-  },
-  {
     "type": "hex_int_literal",
     "named": true
   },
   {
-    "type": "highp",
-    "named": false
-  },
-  {
-    "type": "i16",
-    "named": false
-  },
-  {
     "type": "i32",
-    "named": false
-  },
-  {
-    "type": "i64",
-    "named": false
-  },
-  {
-    "type": "i8",
     "named": false
   },
   {
@@ -2340,35 +2073,7 @@
     "named": false
   },
   {
-    "type": "impl",
-    "named": false
-  },
-  {
-    "type": "implements",
-    "named": false
-  },
-  {
-    "type": "import",
-    "named": false
-  },
-  {
-    "type": "inline",
-    "named": false
-  },
-  {
-    "type": "inout",
-    "named": false
-  },
-  {
     "type": "instance_index",
-    "named": false
-  },
-  {
-    "type": "instanceof",
-    "named": false
-  },
-  {
-    "type": "interface",
     "named": false
   },
   {
@@ -2377,10 +2082,6 @@
   },
   {
     "type": "invariant",
-    "named": false
-  },
-  {
-    "type": "layout",
     "named": false
   },
   {
@@ -2405,18 +2106,6 @@
   },
   {
     "type": "loop",
-    "named": false
-  },
-  {
-    "type": "lowp",
-    "named": false
-  },
-  {
-    "type": "macro",
-    "named": false
-  },
-  {
-    "type": "macro_rules",
     "named": false
   },
   {
@@ -2456,87 +2145,11 @@
     "named": false
   },
   {
-    "type": "match",
-    "named": false
-  },
-  {
-    "type": "mediump",
-    "named": false
-  },
-  {
-    "type": "meta",
-    "named": false
-  },
-  {
-    "type": "mod",
-    "named": false
-  },
-  {
-    "type": "module",
-    "named": false
-  },
-  {
-    "type": "move",
-    "named": false
-  },
-  {
     "type": "multisampled_texture_type",
     "named": true
   },
   {
-    "type": "mut",
-    "named": false
-  },
-  {
-    "type": "mutable",
-    "named": false
-  },
-  {
-    "type": "namespace",
-    "named": false
-  },
-  {
-    "type": "new",
-    "named": false
-  },
-  {
-    "type": "nil",
-    "named": false
-  },
-  {
-    "type": "noexcept",
-    "named": false
-  },
-  {
-    "type": "noinline",
-    "named": false
-  },
-  {
-    "type": "nointerpolation",
-    "named": false
-  },
-  {
-    "type": "noperspective",
-    "named": false
-  },
-  {
-    "type": "null",
-    "named": false
-  },
-  {
-    "type": "nullptr",
-    "named": false
-  },
-  {
     "type": "num_workgroups",
-    "named": false
-  },
-  {
-    "type": "of",
-    "named": false
-  },
-  {
-    "type": "operator",
     "named": false
   },
   {
@@ -2544,31 +2157,7 @@
     "named": false
   },
   {
-    "type": "package",
-    "named": false
-  },
-  {
-    "type": "packoffset",
-    "named": false
-  },
-  {
-    "type": "partition",
-    "named": false
-  },
-  {
-    "type": "pass",
-    "named": false
-  },
-  {
-    "type": "patch",
-    "named": false
-  },
-  {
     "type": "perspective",
-    "named": false
-  },
-  {
-    "type": "pixelfragment",
     "named": false
   },
   {
@@ -2576,43 +2165,11 @@
     "named": false
   },
   {
-    "type": "precise",
-    "named": false
-  },
-  {
-    "type": "precision",
-    "named": false
-  },
-  {
-    "type": "premerge",
-    "named": false
-  },
-  {
-    "type": "priv",
-    "named": false
-  },
-  {
     "type": "private",
     "named": false
   },
   {
-    "type": "protected",
-    "named": false
-  },
-  {
     "type": "ptr",
-    "named": false
-  },
-  {
-    "type": "pub",
-    "named": false
-  },
-  {
-    "type": "public",
-    "named": false
-  },
-  {
-    "type": "quat",
     "named": false
   },
   {
@@ -2633,38 +2190,6 @@
   },
   {
     "type": "read_write",
-    "named": false
-  },
-  {
-    "type": "readonly",
-    "named": false
-  },
-  {
-    "type": "ref",
-    "named": false
-  },
-  {
-    "type": "regardless",
-    "named": false
-  },
-  {
-    "type": "register",
-    "named": false
-  },
-  {
-    "type": "reinterpret_cast",
-    "named": false
-  },
-  {
-    "type": "requires",
-    "named": false
-  },
-  {
-    "type": "resource",
-    "named": false
-  },
-  {
-    "type": "restrict",
     "named": false
   },
   {
@@ -2744,51 +2269,7 @@
     "named": false
   },
   {
-    "type": "self",
-    "named": false
-  },
-  {
-    "type": "set",
-    "named": false
-  },
-  {
-    "type": "shared",
-    "named": false
-  },
-  {
-    "type": "signed",
-    "named": false
-  },
-  {
     "type": "size",
-    "named": false
-  },
-  {
-    "type": "sizeof",
-    "named": false
-  },
-  {
-    "type": "smooth",
-    "named": false
-  },
-  {
-    "type": "snorm",
-    "named": false
-  },
-  {
-    "type": "static",
-    "named": false
-  },
-  {
-    "type": "static_assert",
-    "named": false
-  },
-  {
-    "type": "static_cast",
-    "named": false
-  },
-  {
-    "type": "std",
     "named": false
   },
   {
@@ -2800,23 +2281,7 @@
     "named": false
   },
   {
-    "type": "subroutine",
-    "named": false
-  },
-  {
-    "type": "super",
-    "named": false
-  },
-  {
     "type": "switch",
-    "named": false
-  },
-  {
-    "type": "target",
-    "named": false
-  },
-  {
-    "type": "template",
     "named": false
   },
   {
@@ -2880,51 +2345,7 @@
     "named": false
   },
   {
-    "type": "this",
-    "named": false
-  },
-  {
-    "type": "thread_local",
-    "named": false
-  },
-  {
-    "type": "throw",
-    "named": false
-  },
-  {
-    "type": "trait",
-    "named": false
-  },
-  {
     "type": "true",
-    "named": false
-  },
-  {
-    "type": "try",
-    "named": false
-  },
-  {
-    "type": "type",
-    "named": false
-  },
-  {
-    "type": "typedef",
-    "named": false
-  },
-  {
-    "type": "typeid",
-    "named": false
-  },
-  {
-    "type": "typename",
-    "named": false
-  },
-  {
-    "type": "typeof",
-    "named": false
-  },
-  {
-    "type": "u16",
     "named": false
   },
   {
@@ -2932,51 +2353,11 @@
     "named": false
   },
   {
-    "type": "u64",
-    "named": false
-  },
-  {
-    "type": "u8",
-    "named": false
-  },
-  {
     "type": "uniform",
     "named": false
   },
   {
-    "type": "union",
-    "named": false
-  },
-  {
-    "type": "unless",
-    "named": false
-  },
-  {
-    "type": "unorm",
-    "named": false
-  },
-  {
-    "type": "unsafe",
-    "named": false
-  },
-  {
-    "type": "unsized",
-    "named": false
-  },
-  {
-    "type": "use",
-    "named": false
-  },
-  {
-    "type": "using",
-    "named": false
-  },
-  {
     "type": "var",
-    "named": false
-  },
-  {
-    "type": "varying",
     "named": false
   },
   {
@@ -3000,27 +2381,7 @@
     "named": false
   },
   {
-    "type": "virtual",
-    "named": false
-  },
-  {
-    "type": "volatile",
-    "named": false
-  },
-  {
-    "type": "wgsl",
-    "named": false
-  },
-  {
-    "type": "where",
-    "named": false
-  },
-  {
     "type": "while",
-    "named": false
-  },
-  {
-    "type": "with",
     "named": false
   },
   {
@@ -3037,14 +2398,6 @@
   },
   {
     "type": "write",
-    "named": false
-  },
-  {
-    "type": "writeonly",
-    "named": false
-  },
-  {
-    "type": "yield",
     "named": false
   },
   {
