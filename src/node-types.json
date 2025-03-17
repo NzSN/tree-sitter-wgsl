@@ -921,6 +921,36 @@
     }
   },
   {
+    "type": "import",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "import_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "import_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident_pattern_token",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "increment_statement",
     "named": true,
     "fields": {},
@@ -1542,6 +1572,10 @@
           "named": true
         },
         {
+          "type": "import",
+          "named": true
+        },
+        {
           "type": "struct_decl",
           "named": true
         },
@@ -1765,6 +1799,10 @@
     "named": false
   },
   {
+    "type": "#import",
+    "named": false
+  },
+  {
     "type": "%",
     "named": false
   },
@@ -1782,6 +1820,10 @@
   },
   {
     "type": "&=",
+    "named": false
+  },
+  {
+    "type": "'",
     "named": false
   },
   {
@@ -2037,6 +2079,10 @@
     "named": false
   },
   {
+    "type": "from",
+    "named": false
+  },
+  {
     "type": "front_facing",
     "named": false
   },
@@ -2070,6 +2116,10 @@
   },
   {
     "type": "if",
+    "named": false
+  },
+  {
+    "type": "import",
     "named": false
   },
   {

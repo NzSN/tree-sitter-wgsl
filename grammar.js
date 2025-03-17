@@ -57,8 +57,18 @@
             seq($.type_alias_decl, token(';')),
             $.struct_decl,
             $.function_decl,
-            seq($.const_assert_statement, token(';'))
+            seq($.const_assert_statement, token(';')),
+            $.import
         ),
+        import: $ => seq(choice(token('import'), token('#import')),
+		                 choice(token('*'), $.import_list),
+		                 token('from'),
+                         token('\''),
+                         repeat1(choice(token('/'), token('_'), token('-'), token('.'), token(/[a-zA-Z]/))),
+                         token('\''),
+		                 token(';')),
+        import_list: $ => seq(
+	        token('{'), $.ident_pattern_token, optional(repeat(seq(token(','), $.ident_pattern_token))), token('}')),
         bool_literal: $ => choice(
             token('true'),
             token('false')
