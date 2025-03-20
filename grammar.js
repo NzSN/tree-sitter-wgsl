@@ -16,17 +16,17 @@
 
             externals: $ => [
                 $._block_comment,
-                $._disambiguate_template,
-                $._template_args_start,
-                $._template_args_end,
-                $._less_than,
-                $._less_than_equal,
-                $._shift_left,
-                $._shift_left_assign,
-                $._greater_than,
-                $._greater_than_equal,
-                $._shift_right,
-                $._shift_right_assign,
+                $.disambiguate_template,
+                $.template_args_start,
+                $.template_args_end,
+                $.less_than,
+                $.less_than_equal,
+                $.shift_left,
+                $.shift_left_assign,
+                $.greater_than,
+                $.greater_than_equal,
+                $.shift_right,
+                $.shift_right_assign,
                 $._error_sentinel,
             ],
 
@@ -64,11 +64,13 @@
 		                 choice(token('*'), $.import_list),
 		                 token('from'),
                          token('\''),
-                         repeat1(choice(token('/'), token('_'), token('-'), token('.'), token(/[a-zA-Z]/))),
+                         $.module_path,
                          token('\''),
 		                 token(';')),
         import_list: $ => seq(
 	        token('{'), $.ident_pattern_token, optional(repeat(seq(token(','), $.ident_pattern_token))), token('}')),
+        module_path: $ =>
+                repeat1(choice(token('/'), token('_'), token('-'), token('.'), token(/[a-zA-Z]/))),
         bool_literal: $ => choice(
             token('true'),
             token('false')
@@ -125,7 +127,7 @@
             seq(token('@'), token('compute'))
         ),
         attrib_end: $ => seq(optional(token(',')), token(')')),
-        array_type_specifier: $ => seq(token('array'), $._disambiguate_template, $._template_args_start, $.type_specifier, optional(seq(token(','), $.element_count_expression)), $._template_args_end),
+        array_type_specifier: $ => seq(token('array'), $.disambiguate_template, $.template_args_start, $.type_specifier, optional(seq(token(','), $.element_count_expression)), $.template_args_end),
         element_count_expression: $ => choice(
             $.additive_expression,
             $.bitwise_expression
@@ -136,9 +138,9 @@
         texture_and_sampler_types: $ => choice(
             $.sampler_type,
             $.depth_texture_type,
-            seq($.sampled_texture_type, $._disambiguate_template, $._template_args_start, $.type_specifier, $._template_args_end),
-            seq($.multisampled_texture_type, $._disambiguate_template, $._template_args_start, $.type_specifier, $._template_args_end),
-            seq($.storage_texture_type, $._disambiguate_template, $._template_args_start, $.texel_format, token(','), $.access_mode, $._template_args_end)
+            seq($.sampled_texture_type, $.disambiguate_template, $.template_args_start, $.type_specifier, $.template_args_end),
+            seq($.multisampled_texture_type, $.disambiguate_template, $.template_args_start, $.type_specifier, $.template_args_end),
+            seq($.storage_texture_type, $.disambiguate_template, $.template_args_start, $.texel_format, token(','), $.access_mode, $.template_args_end)
         ),
         sampler_type: $ => choice(
             token('sampler'),
@@ -177,11 +179,11 @@
             token('f16'),
             token('i32'),
             token('u32'),
-            seq($.vec_prefix, $._disambiguate_template, $._template_args_start, $.type_specifier, $._template_args_end),
-            seq($.mat_prefix, $._disambiguate_template, $._template_args_start, $.type_specifier, $._template_args_end),
-            seq(token('ptr'), $._disambiguate_template, $._template_args_start, $.address_space, token(','), $.type_specifier, optional(seq(token(','), $.access_mode)), $._template_args_end),
+            seq($.vec_prefix, $.disambiguate_template, $.template_args_start, $.type_specifier, $.template_args_end),
+            seq($.mat_prefix, $.disambiguate_template, $.template_args_start, $.type_specifier, $.template_args_end),
+            seq(token('ptr'), $.disambiguate_template, $.template_args_start, $.address_space, token(','), $.type_specifier, optional(seq(token(','), $.access_mode)), $.template_args_end),
             $.array_type_specifier,
-            seq(token('atomic'), $._disambiguate_template, $._template_args_start, $.type_specifier, $._template_args_end),
+            seq(token('atomic'), $.disambiguate_template, $.template_args_start, $.type_specifier, $.template_args_end),
             $.texture_and_sampler_types
         ),
         vec_prefix: $ => choice(
@@ -206,9 +208,9 @@
             seq(token('let'), $.optionally_typed_ident, token('='), $.expression),
             seq(token('const'), $.optionally_typed_ident, token('='), $.expression)
         ),
-        variable_decl: $ => seq(token('var'), $._disambiguate_template, optional($.variable_qualifier), $.optionally_typed_ident),
+        variable_decl: $ => seq(token('var'), $.disambiguate_template, optional($.variable_qualifier), $.optionally_typed_ident),
         optionally_typed_ident: $ => seq($.ident, optional(seq(token(':'), $.type_specifier))),
-        variable_qualifier: $ => seq($._template_args_start, $.address_space, optional(seq(token(','), $.access_mode)), $._template_args_end),
+        variable_qualifier: $ => seq($.template_args_start, $.address_space, optional(seq(token(','), $.access_mode)), $.template_args_end),
         global_variable_decl: $ => seq(optional(repeat1($.attribute)), $.variable_decl, optional(seq(token('='), $.expression))),
         global_constant_decl: $ => choice(
             seq(token('const'), $.optionally_typed_ident, token('='), $.expression),
@@ -219,16 +221,16 @@
             $.call_expression,
             $.literal,
             $.paren_expression,
-            seq(token('bitcast'), $._disambiguate_template, $._template_args_start, $.type_specifier, $._template_args_end, $.paren_expression)
+            seq(token('bitcast'), $.disambiguate_template, $.template_args_start, $.type_specifier, $.template_args_end, $.paren_expression)
         ),
         call_expression: $ => $.call_phrase,
         call_phrase: $ => seq($.callable, $.argument_expression_list),
         callable: $ => choice(
             $.ident,
             $.type_specifier_without_ident,
-            seq($.vec_prefix, $._disambiguate_template),
-            seq($.mat_prefix, $._disambiguate_template),
-            seq(token('array'), $._disambiguate_template)
+            seq($.vec_prefix, $.disambiguate_template),
+            seq($.mat_prefix, $.disambiguate_template),
+            seq(token('array'), $.disambiguate_template)
         ),
         paren_expression: $ => seq(token('('), $.expression, token(')')),
         argument_expression_list: $ => seq(token('('), optional($.expression_comma_list), token(')')),
@@ -275,15 +277,15 @@
         ),
         shift_expression: $ => choice(
             $.additive_expression,
-            seq($.unary_expression, $._shift_left, $.unary_expression),
-            seq($.unary_expression, $._shift_right, $.unary_expression)
+            seq($.unary_expression, $.shift_left, $.unary_expression),
+            seq($.unary_expression, $.shift_right, $.unary_expression)
         ),
         relational_expression: $ => choice(
             $.shift_expression,
-            seq($.shift_expression, $._less_than, $.shift_expression),
-            seq($.shift_expression, $._greater_than, $.shift_expression),
-            seq($.shift_expression, $._less_than_equal, $.shift_expression),
-            seq($.shift_expression, $._greater_than_equal, $.shift_expression),
+            seq($.shift_expression, $.less_than, $.shift_expression),
+            seq($.shift_expression, $.greater_than, $.shift_expression),
+            seq($.shift_expression, $.less_than_equal, $.shift_expression),
+            seq($.shift_expression, $.greater_than_equal, $.shift_expression),
             seq($.shift_expression, token('=='), $.shift_expression),
             seq($.shift_expression, token('!='), $.shift_expression)
         ),
@@ -332,8 +334,8 @@
             token('&='),
             token('|='),
             token('^='),
-            $._shift_right_assign,
-            $._shift_left_assign
+            $.shift_right_assign,
+            $.shift_left_assign
         ),
         increment_statement: $ => seq($.lhs_expression, token('++')),
         decrement_statement: $ => seq($.lhs_expression, token('--')),
