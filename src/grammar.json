@@ -4416,8 +4416,17 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "ident"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "ident"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "builtin_function_name"
+            }
+          ]
         },
         {
           "type": "TOKEN",

@@ -434,7 +434,7 @@
             $.decrement_statement
         ),
         function_decl: $ => seq(optional(repeat1($.attribute)), $.function_header, $.compound_statement),
-        function_header: $ => seq(token('fn'), $.ident, token('('), optional($.param_list), token(')'), optional(seq(token('->'), optional(repeat1($.attribute)), $.type_specifier))),
+        function_header: $ => seq(token('fn'), choice($.ident,$.builtin_function_name), token('('), optional($.param_list), token(')'), optional(seq(token('->'), optional(repeat1($.attribute)), $.type_specifier))),
         param_list: $ => seq($.param, optional(repeat1(seq(token(','), $.param))), optional(token(','))),
         param: $ => seq(optional(repeat1($.attribute)), $.ident, token(':'), $.type_specifier),
         enable_directive: $ => seq(token('enable'), $.extension_name, token(';')),
