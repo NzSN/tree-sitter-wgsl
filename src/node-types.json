@@ -61,7 +61,19 @@
       "required": true,
       "types": [
         {
+          "type": "disambiguate_template",
+          "named": true
+        },
+        {
           "type": "element_count_expression",
+          "named": true
+        },
+        {
+          "type": "template_args_end",
+          "named": true
+        },
+        {
+          "type": "template_args_start",
           "named": true
         },
         {
@@ -93,6 +105,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "atomic_builtin_function_name",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "attrib_end",
@@ -240,6 +257,45 @@
     "fields": {}
   },
   {
+    "type": "builtin_function_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "atomic_builtin_function_name",
+          "named": true
+        },
+        {
+          "type": "data_packing_builtin_function_name",
+          "named": true
+        },
+        {
+          "type": "data_unpacking_builtin_function_name",
+          "named": true
+        },
+        {
+          "type": "derivative_builtin_function_name",
+          "named": true
+        },
+        {
+          "type": "numeric_builtin_function_name",
+          "named": true
+        },
+        {
+          "type": "synchronization_builtin_function_name",
+          "named": true
+        },
+        {
+          "type": "texture_builtin_function_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "builtin_value_name",
     "named": true,
     "fields": {}
@@ -283,9 +339,17 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
+        {
+          "type": "builtin_function_name",
+          "named": true
+        },
+        {
+          "type": "disambiguate_template",
+          "named": true
+        },
         {
           "type": "ident",
           "named": true
@@ -384,7 +448,21 @@
   {
     "type": "compound_assignment_operator",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "shift_left_assign",
+          "named": true
+        },
+        {
+          "type": "shift_right_assign",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "compound_statement",
@@ -470,6 +548,16 @@
     }
   },
   {
+    "type": "data_packing_builtin_function_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "data_unpacking_builtin_function_name",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "decimal_float_literal",
     "named": true,
     "fields": {}
@@ -511,6 +599,11 @@
   },
   {
     "type": "depth_texture_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "derivative_builtin_function_name",
     "named": true,
     "fields": {}
   },
@@ -925,15 +1018,28 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
         {
+          "type": "import_all",
+          "named": true
+        },
+        {
           "type": "import_list",
+          "named": true
+        },
+        {
+          "type": "module_path",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "import_all",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "import_list",
@@ -1080,6 +1186,11 @@
     }
   },
   {
+    "type": "module_path",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "multiplicative_expression",
     "named": true,
     "fields": {},
@@ -1104,6 +1215,11 @@
   },
   {
     "type": "multiplicative_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "numeric_builtin_function_name",
     "named": true,
     "fields": {}
   },
@@ -1192,6 +1308,10 @@
           "named": true
         },
         {
+          "type": "disambiguate_template",
+          "named": true
+        },
+        {
           "type": "ident",
           "named": true
         },
@@ -1201,6 +1321,14 @@
         },
         {
           "type": "paren_expression",
+          "named": true
+        },
+        {
+          "type": "template_args_end",
+          "named": true
+        },
+        {
+          "type": "template_args_start",
           "named": true
         },
         {
@@ -1218,6 +1346,22 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "greater_than",
+          "named": true
+        },
+        {
+          "type": "greater_than_equal",
+          "named": true
+        },
+        {
+          "type": "less_than",
+          "named": true
+        },
+        {
+          "type": "less_than_equal",
+          "named": true
+        },
         {
           "type": "shift_expression",
           "named": true
@@ -1260,6 +1404,14 @@
       "types": [
         {
           "type": "additive_expression",
+          "named": true
+        },
+        {
+          "type": "shift_left",
+          "named": true
+        },
+        {
+          "type": "shift_right",
           "named": true
         },
         {
@@ -1495,6 +1647,11 @@
     "fields": {}
   },
   {
+    "type": "synchronization_builtin_function_name",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "texel_format",
     "named": true,
     "fields": {}
@@ -1516,6 +1673,10 @@
           "named": true
         },
         {
+          "type": "disambiguate_template",
+          "named": true
+        },
+        {
           "type": "multisampled_texture_type",
           "named": true
         },
@@ -1532,6 +1693,14 @@
           "named": true
         },
         {
+          "type": "template_args_end",
+          "named": true
+        },
+        {
+          "type": "template_args_start",
+          "named": true
+        },
+        {
           "type": "texel_format",
           "named": true
         },
@@ -1541,6 +1710,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "texture_builtin_function_name",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "translation_unit",
@@ -1645,7 +1819,19 @@
           "named": true
         },
         {
+          "type": "disambiguate_template",
+          "named": true
+        },
+        {
           "type": "mat_prefix",
+          "named": true
+        },
+        {
+          "type": "template_args_end",
+          "named": true
+        },
+        {
+          "type": "template_args_start",
           "named": true
         },
         {
@@ -1691,6 +1877,10 @@
       "required": true,
       "types": [
         {
+          "type": "disambiguate_template",
+          "named": true
+        },
+        {
           "type": "optionally_typed_ident",
           "named": true
         },
@@ -1715,6 +1905,14 @@
         },
         {
           "type": "address_space",
+          "named": true
+        },
+        {
+          "type": "template_args_end",
+          "named": true
+        },
+        {
+          "type": "template_args_start",
           "named": true
         }
       ]
@@ -1959,6 +2157,18 @@
     "named": false
   },
   {
+    "type": "abs",
+    "named": false
+  },
+  {
+    "type": "acos",
+    "named": false
+  },
+  {
+    "type": "acosh",
+    "named": false
+  },
+  {
     "type": "alias",
     "named": false
   },
@@ -1971,7 +2181,71 @@
     "named": false
   },
   {
+    "type": "asin",
+    "named": false
+  },
+  {
+    "type": "asinh",
+    "named": false
+  },
+  {
+    "type": "atan",
+    "named": false
+  },
+  {
+    "type": "atan2",
+    "named": false
+  },
+  {
+    "type": "atanh",
+    "named": false
+  },
+  {
     "type": "atomic",
+    "named": false
+  },
+  {
+    "type": "atomicAdd",
+    "named": false
+  },
+  {
+    "type": "atomicAnd",
+    "named": false
+  },
+  {
+    "type": "atomicCompareExchangeWeak",
+    "named": false
+  },
+  {
+    "type": "atomicExchange",
+    "named": false
+  },
+  {
+    "type": "atomicLoad",
+    "named": false
+  },
+  {
+    "type": "atomicMax",
+    "named": false
+  },
+  {
+    "type": "atomicMin",
+    "named": false
+  },
+  {
+    "type": "atomicOr",
+    "named": false
+  },
+  {
+    "type": "atomicStore",
+    "named": false
+  },
+  {
+    "type": "atomicSub",
+    "named": false
+  },
+  {
+    "type": "atomicXor",
     "named": false
   },
   {
@@ -2003,11 +2277,19 @@
     "named": false
   },
   {
+    "type": "ceil",
+    "named": false
+  },
+  {
     "type": "center",
     "named": false
   },
   {
     "type": "centroid",
+    "named": false
+  },
+  {
+    "type": "clamp",
     "named": false
   },
   {
@@ -2031,11 +2313,87 @@
     "named": false
   },
   {
+    "type": "cos",
+    "named": false
+  },
+  {
+    "type": "cosh",
+    "named": false
+  },
+  {
+    "type": "countLeadingZeros",
+    "named": false
+  },
+  {
+    "type": "countOneBits",
+    "named": false
+  },
+  {
+    "type": "countTrailingZeros",
+    "named": false
+  },
+  {
+    "type": "cross",
+    "named": false
+  },
+  {
     "type": "default",
     "named": false
   },
   {
+    "type": "degrees",
+    "named": false
+  },
+  {
+    "type": "determinant",
+    "named": false
+  },
+  {
+    "type": "disambiguate_template",
+    "named": true
+  },
+  {
     "type": "discard",
+    "named": false
+  },
+  {
+    "type": "distance",
+    "named": false
+  },
+  {
+    "type": "dot",
+    "named": false
+  },
+  {
+    "type": "dot4I8Packed",
+    "named": false
+  },
+  {
+    "type": "dot4U8Packed",
+    "named": false
+  },
+  {
+    "type": "dpdx",
+    "named": false
+  },
+  {
+    "type": "dpdxCoarse",
+    "named": false
+  },
+  {
+    "type": "dpdxFine",
+    "named": false
+  },
+  {
+    "type": "dpdy",
+    "named": false
+  },
+  {
+    "type": "dpdyCoarse",
+    "named": false
+  },
+  {
+    "type": "dpdyFine",
     "named": false
   },
   {
@@ -2047,6 +2405,18 @@
     "named": false
   },
   {
+    "type": "exp",
+    "named": false
+  },
+  {
+    "type": "exp2",
+    "named": false
+  },
+  {
+    "type": "extractBits",
+    "named": false
+  },
+  {
     "type": "f16",
     "named": false
   },
@@ -2055,11 +2425,31 @@
     "named": false
   },
   {
+    "type": "faceForward",
+    "named": false
+  },
+  {
     "type": "false",
     "named": false
   },
   {
+    "type": "firstLeadingBit",
+    "named": false
+  },
+  {
+    "type": "firstTrailingBit",
+    "named": false
+  },
+  {
     "type": "flat",
+    "named": false
+  },
+  {
+    "type": "floor",
+    "named": false
+  },
+  {
+    "type": "fma",
     "named": false
   },
   {
@@ -2071,11 +2461,19 @@
     "named": false
   },
   {
+    "type": "fract",
+    "named": false
+  },
+  {
     "type": "frag_depth",
     "named": false
   },
   {
     "type": "fragment",
+    "named": false
+  },
+  {
+    "type": "frexp",
     "named": false
   },
   {
@@ -2091,8 +2489,28 @@
     "named": false
   },
   {
+    "type": "fwidth",
+    "named": false
+  },
+  {
+    "type": "fwidthCoarse",
+    "named": false
+  },
+  {
+    "type": "fwidthFine",
+    "named": false
+  },
+  {
     "type": "global_invocation_id",
     "named": false
+  },
+  {
+    "type": "greater_than",
+    "named": true
+  },
+  {
+    "type": "greater_than_equal",
+    "named": true
   },
   {
     "type": "group",
@@ -2123,6 +2541,10 @@
     "named": false
   },
   {
+    "type": "insertBits",
+    "named": false
+  },
+  {
     "type": "instance_index",
     "named": false
   },
@@ -2133,6 +2555,26 @@
   {
     "type": "invariant",
     "named": false
+  },
+  {
+    "type": "inverseSqrt",
+    "named": false
+  },
+  {
+    "type": "ldexp",
+    "named": false
+  },
+  {
+    "type": "length",
+    "named": false
+  },
+  {
+    "type": "less_than",
+    "named": true
+  },
+  {
+    "type": "less_than_equal",
+    "named": true
   },
   {
     "type": "let",
@@ -2155,6 +2597,14 @@
     "named": false
   },
   {
+    "type": "log",
+    "named": false
+  },
+  {
+    "type": "log2",
+    "named": false
+  },
+  {
     "type": "loop",
     "named": false
   },
@@ -2163,7 +2613,23 @@
     "named": false
   },
   {
+    "type": "mat2x2f",
+    "named": false
+  },
+  {
+    "type": "mat2x2h",
+    "named": false
+  },
+  {
     "type": "mat2x3",
+    "named": false
+  },
+  {
+    "type": "mat2x3f",
+    "named": false
+  },
+  {
+    "type": "mat2x3h",
     "named": false
   },
   {
@@ -2171,7 +2637,23 @@
     "named": false
   },
   {
+    "type": "mat2x4f",
+    "named": false
+  },
+  {
+    "type": "mat2x4h",
+    "named": false
+  },
+  {
     "type": "mat3x2",
+    "named": false
+  },
+  {
+    "type": "mat3x2f",
+    "named": false
+  },
+  {
+    "type": "mat3x2h",
     "named": false
   },
   {
@@ -2179,7 +2661,23 @@
     "named": false
   },
   {
+    "type": "mat3x3f",
+    "named": false
+  },
+  {
+    "type": "mat3x3h",
+    "named": false
+  },
+  {
     "type": "mat3x4",
+    "named": false
+  },
+  {
+    "type": "mat3x4f",
+    "named": false
+  },
+  {
+    "type": "mat3x4h",
     "named": false
   },
   {
@@ -2187,7 +2685,23 @@
     "named": false
   },
   {
+    "type": "mat4x2f",
+    "named": false
+  },
+  {
+    "type": "mat4x2h",
+    "named": false
+  },
+  {
     "type": "mat4x3",
+    "named": false
+  },
+  {
+    "type": "mat4x3f",
+    "named": false
+  },
+  {
+    "type": "mat4x3h",
     "named": false
   },
   {
@@ -2195,8 +2709,36 @@
     "named": false
   },
   {
+    "type": "mat4x4f",
+    "named": false
+  },
+  {
+    "type": "mat4x4h",
+    "named": false
+  },
+  {
+    "type": "max",
+    "named": false
+  },
+  {
+    "type": "min",
+    "named": false
+  },
+  {
+    "type": "mix",
+    "named": false
+  },
+  {
+    "type": "modf",
+    "named": false
+  },
+  {
     "type": "multisampled_texture_type",
     "named": true
+  },
+  {
+    "type": "normalize",
+    "named": false
   },
   {
     "type": "num_workgroups",
@@ -2204,6 +2746,42 @@
   },
   {
     "type": "override",
+    "named": false
+  },
+  {
+    "type": "pack2x16float",
+    "named": false
+  },
+  {
+    "type": "pack2x16snorm",
+    "named": false
+  },
+  {
+    "type": "pack2x16unorm",
+    "named": false
+  },
+  {
+    "type": "pack4x8snorm",
+    "named": false
+  },
+  {
+    "type": "pack4x8unorm",
+    "named": false
+  },
+  {
+    "type": "pack4xI8",
+    "named": false
+  },
+  {
+    "type": "pack4xI8Clamp",
+    "named": false
+  },
+  {
+    "type": "pack4xU8",
+    "named": false
+  },
+  {
+    "type": "pack4xU8Clamp",
     "named": false
   },
   {
@@ -2215,11 +2793,19 @@
     "named": false
   },
   {
+    "type": "pow",
+    "named": false
+  },
+  {
     "type": "private",
     "named": false
   },
   {
     "type": "ptr",
+    "named": false
+  },
+  {
+    "type": "quantizeToF16",
     "named": false
   },
   {
@@ -2235,6 +2821,10 @@
     "named": false
   },
   {
+    "type": "radians",
+    "named": false
+  },
+  {
     "type": "read",
     "named": false
   },
@@ -2243,7 +2833,19 @@
     "named": false
   },
   {
+    "type": "reflect",
+    "named": false
+  },
+  {
+    "type": "refract",
+    "named": false
+  },
+  {
     "type": "return",
+    "named": false
+  },
+  {
+    "type": "reverseBits",
     "named": false
   },
   {
@@ -2299,6 +2901,10 @@
     "named": false
   },
   {
+    "type": "round",
+    "named": false
+  },
+  {
     "type": "sample",
     "named": false
   },
@@ -2319,11 +2925,59 @@
     "named": false
   },
   {
+    "type": "saturate",
+    "named": false
+  },
+  {
+    "type": "shift_left",
+    "named": true
+  },
+  {
+    "type": "shift_left_assign",
+    "named": true
+  },
+  {
+    "type": "shift_right",
+    "named": true
+  },
+  {
+    "type": "shift_right_assign",
+    "named": true
+  },
+  {
+    "type": "sign",
+    "named": false
+  },
+  {
+    "type": "sin",
+    "named": false
+  },
+  {
+    "type": "sinh",
+    "named": false
+  },
+  {
     "type": "size",
     "named": false
   },
   {
+    "type": "smoothstep",
+    "named": false
+  },
+  {
+    "type": "sqrt",
+    "named": false
+  },
+  {
+    "type": "step",
+    "named": false
+  },
+  {
     "type": "storage",
+    "named": false
+  },
+  {
+    "type": "storageBarrier",
     "named": false
   },
   {
@@ -2332,6 +2986,86 @@
   },
   {
     "type": "switch",
+    "named": false
+  },
+  {
+    "type": "tan",
+    "named": false
+  },
+  {
+    "type": "tanh",
+    "named": false
+  },
+  {
+    "type": "template_args_end",
+    "named": true
+  },
+  {
+    "type": "template_args_start",
+    "named": true
+  },
+  {
+    "type": "textureBarrier",
+    "named": false
+  },
+  {
+    "type": "textureDimensions",
+    "named": false
+  },
+  {
+    "type": "textureGather",
+    "named": false
+  },
+  {
+    "type": "textureGatherCompare",
+    "named": false
+  },
+  {
+    "type": "textureLoad",
+    "named": false
+  },
+  {
+    "type": "textureNumLayers",
+    "named": false
+  },
+  {
+    "type": "textureNumLevels",
+    "named": false
+  },
+  {
+    "type": "textureNumSamples",
+    "named": false
+  },
+  {
+    "type": "textureSample",
+    "named": false
+  },
+  {
+    "type": "textureSampleBaseClampToEdge",
+    "named": false
+  },
+  {
+    "type": "textureSampleBias",
+    "named": false
+  },
+  {
+    "type": "textureSampleCompare",
+    "named": false
+  },
+  {
+    "type": "textureSampleCompareLevel",
+    "named": false
+  },
+  {
+    "type": "textureSampleGrad",
+    "named": false
+  },
+  {
+    "type": "textureSampleLevel",
+    "named": false
+  },
+  {
+    "type": "textureStore",
     "named": false
   },
   {
@@ -2395,7 +3129,15 @@
     "named": false
   },
   {
+    "type": "transpose",
+    "named": false
+  },
+  {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "trunc",
     "named": false
   },
   {
@@ -2407,6 +3149,42 @@
     "named": false
   },
   {
+    "type": "unpack2x16float",
+    "named": false
+  },
+  {
+    "type": "unpack2x16snorm",
+    "named": false
+  },
+  {
+    "type": "unpack2x16unorm",
+    "named": false
+  },
+  {
+    "type": "unpack4x8snorm",
+    "named": false
+  },
+  {
+    "type": "unpack4x8unorm",
+    "named": false
+  },
+  {
+    "type": "unpack4xI8",
+    "named": false
+  },
+  {
+    "type": "unpack4xI8Clamp",
+    "named": false
+  },
+  {
+    "type": "unpack4xU8",
+    "named": false
+  },
+  {
+    "type": "unpack4xU8Clamp",
+    "named": false
+  },
+  {
     "type": "var",
     "named": false
   },
@@ -2415,11 +3193,59 @@
     "named": false
   },
   {
+    "type": "vec2f",
+    "named": false
+  },
+  {
+    "type": "vec2h",
+    "named": false
+  },
+  {
+    "type": "vec2i",
+    "named": false
+  },
+  {
+    "type": "vec2u",
+    "named": false
+  },
+  {
     "type": "vec3",
     "named": false
   },
   {
+    "type": "vec3f",
+    "named": false
+  },
+  {
+    "type": "vec3h",
+    "named": false
+  },
+  {
+    "type": "vec3i",
+    "named": false
+  },
+  {
+    "type": "vec3u",
+    "named": false
+  },
+  {
     "type": "vec4",
+    "named": false
+  },
+  {
+    "type": "vec4f",
+    "named": false
+  },
+  {
+    "type": "vec4h",
+    "named": false
+  },
+  {
+    "type": "vec4i",
+    "named": false
+  },
+  {
+    "type": "vec4u",
     "named": false
   },
   {
@@ -2436,6 +3262,14 @@
   },
   {
     "type": "workgroup",
+    "named": false
+  },
+  {
+    "type": "workgroupBarrier",
+    "named": false
+  },
+  {
+    "type": "workgroupUniformLoad",
     "named": false
   },
   {

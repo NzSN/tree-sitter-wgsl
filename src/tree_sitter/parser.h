@@ -18,6 +18,11 @@ typedef uint16_t TSStateId;
 typedef uint16_t TSSymbol;
 typedef uint16_t TSFieldId;
 typedef struct TSLanguage TSLanguage;
+typedef struct TSLanguageMetadata {
+  uint8_t major_version;
+  uint8_t minor_version;
+  uint8_t patch_version;
+} TSLanguageMetadata;
 #endif
 
 typedef struct {
@@ -26,10 +31,11 @@ typedef struct {
   bool inherited;
 } TSFieldMapEntry;
 
+// Used to index the field and supertype maps.
 typedef struct {
   uint16_t index;
   uint16_t length;
-} TSFieldMapSlice;
+} TSMapSlice;
 
 typedef struct {
   bool visible;
@@ -99,7 +105,7 @@ typedef struct {
 } TSCharacterRange;
 
 struct TSLanguage {
-  uint32_t version;
+  uint32_t abi_version;
   uint32_t symbol_count;
   uint32_t alias_count;
   uint32_t token_count;
@@ -115,7 +121,7 @@ struct TSLanguage {
   const TSParseActionEntry *parse_actions;
   const char * const *symbol_names;
   const char * const *field_names;
-  const TSFieldMapSlice *field_map_slices;
+  const TSMapSlice *field_map_slices;
   const TSFieldMapEntry *field_map_entries;
   const TSSymbolMetadata *symbol_metadata;
   const TSSymbol *public_symbol_map;
@@ -138,6 +144,11 @@ struct TSLanguage {
   const char *name;
   const TSSymbol *reserved_words;
   uint16_t max_reserved_word_set_size;
+  uint32_t supertype_count;
+  const TSSymbol *supertype_symbols;
+  const TSMapSlice *supertype_map_slices;
+  const TSSymbol *supertype_map_entries;
+  TSLanguageMetadata metadata;
 };
 
 static inline bool set_contains(const TSCharacterRange *ranges, uint32_t len, int32_t lookahead) {
